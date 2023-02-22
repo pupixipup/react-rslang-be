@@ -27,12 +27,7 @@ const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
 app.use(helmet());
-var corsOptions = {
-  origin:'*',
-  credentials:true,
-  optionSuccessStatus:200,
-}
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.use('/files', express.static(path.join(__dirname, '../files')));
